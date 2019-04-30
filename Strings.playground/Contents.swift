@@ -35,3 +35,23 @@ func testChallenge2() {
 }
 
 testChallenge2()
+
+// Challenge 3 - Do two strings contain the same characters?
+
+func challenge3(first: String, second: String) -> Bool {
+    return first.sorted() == second.sorted()
+}
+
+func testChallenge3() {
+    assert(challenge3(first: "abca", second: "abca") == true, "Challenge 3 failed")
+    assert(challenge3(first: "abc", second: "cba") == true, "Challenge 3 failed")
+    assert(challenge3(first: "a1 b2", second: "b1 a2") == true, "Challenge 3 failed")
+    assert(challenge3(first: "abc", second: "abca") == false, "Challenge 3 failed")
+    assert(challenge3(first: "abc", second: "Abc") == false, "Challenge 3 failed")
+    assert(challenge3(first: "abc", second: "cbAc") == false, "Challenge 3 failed")
+    assert(challenge3(first: "abcc", second: "abca") == false, "Challenge 3 failed")
+
+    print("Challenge 3 sucess")
+}
+
+testChallenge3()
