@@ -55,3 +55,21 @@ func testChallenge3() {
 }
 
 testChallenge3()
+
+// Challenge 4 - Does one string contain another?
+
+extension String {
+    func fuzzyContains(_ value: String) -> Bool {
+        return self.range(of: value, options: .caseInsensitive) != nil
+    }
+}
+
+func testChallenge4() {
+    assert("Hello, world".fuzzyContains("Hello") == true, "Challenge 4 failed")
+    assert("Hello, world".fuzzyContains("WORLD") == true, "Challenge 4 failed")
+    assert("Hello, world".fuzzyContains("Goobye") == false, "Challenge 4 failed")
+
+    print("Challenge 4 success")
+}
+
+testChallenge4()
