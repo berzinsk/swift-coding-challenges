@@ -73,3 +73,30 @@ func testChallenge4() {
 }
 
 testChallenge4()
+
+// Challenge 5 - Count the characters
+
+func challenge5(word: String, character: Character) -> Int {
+    var counter: Int = 0
+
+    for char in word {
+        if char == character {
+            counter += 1
+        }
+    }
+
+//    return word.reduce(0) { $1 == character ? $0 + 1 : $0 } // - Little bit slower but shorter because Functional Programming FTW
+
+    return counter
+}
+
+func testChallenge5() {
+    assert(challenge5(word: "The rain in Spain", character: "a") == 2, "Challenge 5 failed")
+    assert(challenge5(word: "Mississippi", character: "i") == 4, "Challenge 5 failed")
+    assert(challenge5(word: "Hacking with Swift", character: "i") == 3, "Challenge 5 failed")
+    assert(challenge5(word: "SoMe random word for Me to test", character: "m") == 1, "Challenge 5 failed")
+
+    print("Challenge 5 success")
+}
+
+testChallenge5()
