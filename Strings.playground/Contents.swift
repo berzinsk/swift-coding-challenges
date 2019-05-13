@@ -100,3 +100,28 @@ func testChallenge5() {
 }
 
 testChallenge5()
+
+
+// Challenge 6 - Remove duplicate letters from a string
+
+func challenge6(_ value: String) -> String {
+    var uniqueChars = [Character]()
+
+    for character in value {
+        if !uniqueChars.contains(character) {
+            uniqueChars.append(character)
+        }
+    }
+
+    return String(uniqueChars)
+}
+
+func testChallenge6() {
+    assert(challenge6("wombat") == "wombat", "Challenge 6 failed")
+    assert(challenge6("hello") == "helo", "Challenge 6 failed")
+    assert(challenge6("Mississippi") == "Misp", "Challenge 6 failed")
+
+    print("Challenge 6 success")
+}
+
+testChallenge6()
