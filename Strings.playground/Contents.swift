@@ -125,3 +125,48 @@ func testChallenge6() {
 }
 
 testChallenge6()
+
+
+// Challenge 7 - Condense whitespace
+
+func challenge7(_ value: String) -> String {
+    return value.replacingOccurrences(of: " +", with: " ", options: .regularExpression, range: nil)
+}
+
+func challenge7loop(_ value: String) -> String {
+    var spaceSeen = false
+    var result = ""
+
+    for character in value {
+        if character == " " {
+            if spaceSeen { continue }
+            spaceSeen = true
+        } else {
+            spaceSeen = false
+        }
+
+        result.append(character)
+    }
+
+    return result
+}
+
+func testChallenge7() {
+    assert(challenge7("a   b   c") == "a b c", "Challenge 7 failed")
+    assert(challenge7("    a") == " a", "Challenge 7 failed")
+    assert(challenge7("abc") == "abc", "Challenge 7 failed")
+
+    print("Challenge 7 success")
+}
+
+func testChallenge7loop() {
+    assert(challenge7loop("a   b   c") == "a b c", "Challenge 7 loop failed")
+    assert(challenge7loop("    a") == " a", "Challenge 7 loop failed")
+    assert(challenge7loop("abc") == "abc", "Challenge 7 loop failed")
+
+    print("Challenge 7 loop success")
+}
+
+//testChallenge7loop()
+testChallenge7()
+
