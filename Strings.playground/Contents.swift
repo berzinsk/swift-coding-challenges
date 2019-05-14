@@ -191,3 +191,42 @@ func testChallenge8() {
 
 testChallenge8()
 
+
+// Challenge 9 - Find pangrams
+
+func challenge9(_ value: String) -> Bool {
+    var uniqueChars = [Character]()
+
+    for character in value.lowercased() {
+        if !uniqueChars.contains(character) && character != " " {
+            uniqueChars.append(character)
+        }
+    }
+
+    return uniqueChars.count == 26
+}
+
+func challenge9WithSet(_ value: String) -> Bool {
+    let set = Set(value.lowercased())
+    let characters = set.filter { $0 >= "a" && $0 <= "z" }
+
+    return characters.count == 26
+}
+
+func testChallenge9() {
+    assert(challenge9("The quick brown fox jumps over the lazy dog"), "Challenge 9 failed")
+    assert(challenge9("The quick brown fox jumped over the lazy dog") == false, "Challenge 9 failed")
+
+    print("Challenge 9 success")
+}
+
+func testChallenge9WithSet() {
+    assert(challenge9WithSet("The quick brown fox jumps over the lazy dog"), "Challenge 9 with set failed")
+    assert(challenge9WithSet("The quick brown fox jumped over the lazy dog") == false, "Challenge 9 with set failed")
+
+    print("Challenge 9 with set success")
+}
+
+//testChallenge9WithSet()
+testChallenge9()
+
