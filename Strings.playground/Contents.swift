@@ -170,3 +170,24 @@ func testChallenge7loop() {
 //testChallenge7loop()
 testChallenge7()
 
+
+// Challenge 8 - String is rotated
+
+func challenge8(_ first: String, second: String) -> Bool {
+    guard first.count == second.count else { return false }
+
+    let combined = first + first
+    return combined.contains(second)
+}
+
+func testChallenge8() {
+    assert(challenge8("abcde", second: "eabcd"), "Challenge 8 failed")
+    assert(challenge8("abcde", second: "cdeab"), "Challenge 8 failed")
+    assert(challenge8("abcde", second: "abced") == false, "Challenge 8 failed")
+    assert(challenge8("abc", second: "a") == false, "Challenge 8 failed")
+
+    print("Challenge 8 success")
+}
+
+testChallenge8()
+
