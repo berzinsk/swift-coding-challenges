@@ -230,3 +230,33 @@ func testChallenge9WithSet() {
 //testChallenge9WithSet()
 testChallenge9()
 
+
+// Challenge 10 - Vowels and constants
+
+func challenge10(_ value: String) -> (vowels: Int, constants: Int) {
+    let vowels = "aeiou"
+    let constants = "bcdfghjkmlnpqrstvwxyz"
+
+    var vowelCount = 0
+    var constantCount = 0
+
+    for character in value.lowercased() {
+        if vowels.contains(character) {
+            vowelCount += 1
+        } else if constants.contains(character) {
+            constantCount += 1
+        }
+    }
+
+    return (vowelCount, constantCount)
+}
+
+func testChallenge10() {
+    assert(challenge10("Swift Coding Challenges") == (6, 15), "Challenge 10 failed")
+    assert(challenge10("Mississippi") == (4, 7), "Challenge 10 failed")
+
+    print("Challenge 10 success")
+}
+
+testChallenge10()
+
