@@ -260,3 +260,40 @@ func testChallenge10() {
 
 testChallenge10()
 
+
+// Challenge 11 - Three different letters
+
+func challenge11(_ first: String, second: String) -> Bool {
+    guard first.count == second.count else { return false }
+
+    let firstAsArray = Array(first)
+    let secondAsArray = Array(second)
+
+    var count = 0
+
+    for (index, character) in firstAsArray.enumerated() {
+        if character != secondAsArray[index] {
+            count += 1
+
+            if count == 4 {
+                return false
+            }
+        }
+    }
+
+    return true
+}
+
+func testChallenge11() {
+    assert(challenge11("Clamp", second: "Cramp"), "Challenge 11 failed")
+    assert(challenge11("Clamp", second: "Crams"), "Challenge 11 failed")
+    assert(challenge11("Clamp", second: "Grams"), "Challenge 11 failed")
+    assert(challenge11("Clamp", second: "Grans") == false, "Challenge 11 failed")
+    assert(challenge11("Clamp", second: "Clam") == false, "Challenge 11 failed")
+    assert(challenge11("clamp", second: "maple") == false, "Challenge 11 failed")
+
+    print("Challenge 11 success")
+}
+
+testChallenge11()
+
