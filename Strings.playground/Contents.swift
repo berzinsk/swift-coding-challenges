@@ -297,3 +297,36 @@ func testChallenge11() {
 
 testChallenge11()
 
+
+// Challenge 12 - Find longest prefix
+
+func challenge12(_ value: String) -> String {
+    let array = value.components(separatedBy: " ")
+    guard let first = array.first else { return "" }
+
+    var currentPrefix = ""
+    var bestPrefix = ""
+
+    for character in first {
+        currentPrefix.append(character)
+
+        for word in array {
+            if !word.hasPrefix(currentPrefix) {
+                return bestPrefix
+            }
+        }
+
+        bestPrefix = currentPrefix
+    }
+
+    return bestPrefix
+}
+
+func testChallenge12() {
+    assert(challenge12("swift switch swill swim") == "swi", "Challenge 12 failed")
+    assert(challenge12("flip flap flop") == "fl", "Challenge 12 failed")
+
+    print("Challenge 12 success")
+}
+
+testChallenge12()
