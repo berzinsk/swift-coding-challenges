@@ -330,3 +330,41 @@ func testChallenge12() {
 }
 
 testChallenge12()
+
+
+// Challenge 13 - Run-length encoding
+
+func challenge13(_ value: String) -> String {
+    var currentCharacter: Character?
+    var result = ""
+    var countForCurrent = 0
+
+    for character in value {
+        if character == currentCharacter {
+            countForCurrent += 1
+        } else {
+            if let current = currentCharacter {
+                result.append("\(current)\(countForCurrent)")
+            }
+
+            currentCharacter = character
+            countForCurrent = 1
+        }
+    }
+
+    if let current = currentCharacter {
+        result.append("\(current)\(countForCurrent)")
+    }
+
+    return result
+}
+
+func testChallenge13() {
+    assert(challenge13("aabbcc") == "a2b2c2", "Challenge 13 failed")
+    assert(challenge13("aaabaaabaaa") == "a3b1a3b1a3", "Challenge 13 failed")
+    assert(challenge13("aaAAaa") == "a2A2a2", "Challenge 13 failed")
+
+    print("Challenge 13 success")
+}
+
+testChallenge13()
