@@ -370,6 +370,8 @@ func testChallenge13() {
 testChallenge13()
 
 
+// Challenge 14 - String permutation
+
 func challenge14(string: String, current: String = "") {
     let length = string.count
     let strArray = Array(string)
@@ -393,3 +395,21 @@ func testChallenge14() {
 }
 
 testChallenge14()
+
+
+// Challenge 15 - Reverse the words in a string
+
+func challenge15(string: String) -> String {
+    let words = string.components(separatedBy: " ")
+    let reversed = words.map { String($0.reversed()) }
+    return reversed.joined(separator: " ")
+}
+
+func testChallenge15() {
+    assert(challenge15(string: "Swift Coding Challenges") == "tfiwS gnidoC segnellahC", "Challenge 15 failed")
+    assert(challenge15(string: "The quick brown fox") == "ehT kciuq nworb xof", "Challenge 15 failed")
+
+    print("Challenge 15 success")
+}
+
+testChallenge15()
